@@ -64,7 +64,7 @@ async function shorten(msg,parameters){
 		msg.channel.send(embed);
 	}
 	catch(err){
-		msg.channel.send("An error occured. Please try again.");
+		msg.channel.send("An error occured. Please make sure that the URL starts with http or https.");
 		console.log(err);
 	}
 }
