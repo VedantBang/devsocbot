@@ -12,7 +12,7 @@ Bot.on('ready',()=>{
 
 
 Bot.on('message', msg => {
-	if(msg.content.startsWith(config.prefix) && !(msg.author.bot)){
+	if(msg.content.startsWith(process.env.prefix) && !(msg.author.bot)){
 		let parameters = msg.content.split(" ");
 		let command = parameters.shift().substr(process.env.prefix.length);
 
