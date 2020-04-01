@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
-const prefix = require('./config.js')['prefix'];
+const prefix = process.env.prefix;
 
 // all methods of the bot
 
