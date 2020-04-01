@@ -44,28 +44,30 @@ async function ping(msg,parametes){
 
 
 async function shorten(msg,parameters){
-	try{
-		let body = {
-			longUrl: parameters[0]
+	if(parameters[0].startsWith('http') || parameters[0].startsWith('https')){
+		try{
+			let body = {
+				longUrl: parameters[0]
+			}
+			if(parameters[1]) body.customCode = parameters[1];
+			let response = await fetch('https://bp-gc.in/api/url/shorten',{
+				method: 'POST',
+				headers: {
+					'Content-Type':'application/json;charset=UTF-8'
+				},
+				body: JSON.stringify(body)
+			});
+			response = await response.json();
+			let embed = new Discord.MessageEmbed()
+			.setColor(0x00a99d)
+			.setTitle('URL Shortener')
+			.addField('Short URL', response.shortUrl);
+			msg.channel.send(embed);
 		}
-		if(parameters[1]) body.customCode = parameters[1];
-		let response = await fetch('https://bp-gc.in/api/url/shorten',{
-			method: 'POST',
-			headers: {
-				'Content-Type':'application/json;charset=UTF-8'
-			},
-			body: JSON.stringify(body)
-		});
-		response = await response.json();
-		let embed = new Discord.MessageEmbed()
-		.setColor(0x00a99d)
-		.setTitle('URL Shortener')
-		.addField('Short URL', response.shortUrl);
-		msg.channel.send(embed);
-	}
-	catch(err){
-		msg.channel.send("An error occured. Please make sure that the URL starts with http or https.");
-		console.log(err);
+		catch(err){
+			msg.channel.send("An error occured. Please make sure that the URL starts with http or https, and is valid.");
+			console.log(err);
+		}
 	}
 }
 
