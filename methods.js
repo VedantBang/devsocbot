@@ -69,7 +69,7 @@ async function shorten(msg,parameters){
 			console.log(err);
 		}
 	} else {
-		msg.channel.send("Please make sure that the URL stars with http or https.");
+		msg.channel.send("Please make sure that the URL starts with http or https.");
 	}
 }
 
