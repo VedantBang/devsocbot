@@ -68,6 +68,8 @@ async function shorten(msg,parameters){
 			msg.channel.send("An error occured. Please make sure that the URL starts with http or https, and is valid.");
 			console.log(err);
 		}
+	} else {
+		msg.channel.send("Please make sure that the URL stars with http or https.");
 	}
 }
 
