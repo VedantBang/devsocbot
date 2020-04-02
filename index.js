@@ -1,5 +1,3 @@
-// Bot Invitation link https://bp-gc.in/invitebot
-
 const Discord = require('discord.js');
 const Bot = new Discord.Client();
 const methods = require('./methods.js');
