@@ -76,7 +76,7 @@ async function shorten(msg,parameters){
 async function auditlog(msg,parameters){
 	let audit = await msg.guild.fetchAuditLogs();
 	msg.channel.send("this command is under construction");
-	console.log(audit.entries);
+	console.log(audit.entries.prototype);
 }
 
 const methods = {
