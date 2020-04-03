@@ -21,7 +21,7 @@ Bot.on('message', msg => {
 
 
 Bot.on('guildCreate', guild => {
-	// todo
+	// todo?
 });
 
 

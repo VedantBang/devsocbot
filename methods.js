@@ -73,6 +73,11 @@ async function shorten(msg,parameters){
 	}
 }
 
+async function auditlog(msg,parameters){
+	let audit = await msg.guild.fetchAuditLogs();
+	msg.channel.send("this command is under construction");
+	console.log(audit.entries);
+}
 
 const methods = {
 	info: {
@@ -90,6 +95,10 @@ const methods = {
 	ping: {
 		func: ping,
 		desc: 'Displays the Bot Latency and Discord API Latency'
+	},
+	auditlog: {
+		fund: auditlog,
+		desc: 'Display the Audit Log of the current server'
 	}
 }
 
