@@ -97,7 +97,7 @@ const methods = {
 		desc: 'Displays the Bot Latency and Discord API Latency'
 	},
 	auditlog: {
-		fund: auditlog,
+		func: auditlog,
 		desc: 'Display the Audit Log of the current server'
 	}
 }
