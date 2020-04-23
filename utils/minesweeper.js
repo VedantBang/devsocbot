@@ -11,6 +11,7 @@ function printArea(a,msg){
 		msg.channel.send(row.join(" "));
 	});
 	msg.channel.send("\`Note: Borders contain nothing.\`")
+	return new Promise((resolve,reject) => {resolve()});
 }
 
 function main(msg,n){
@@ -67,8 +68,6 @@ function main(msg,n){
 	}
 
 	printArea(area,msg);
-	return new Promise((resolve,reject)=>{resolve()});
-
 }
  module.exports = main;
 
