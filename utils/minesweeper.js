@@ -6,14 +6,6 @@ function search(p,c){
 }
 
 
-function printArea(a,msg){
-	a.forEach(row => {
-		msg.channel.send(row.join(" "));
-	});
-	msg.channel.send("\`Note: Borders contain nothing.\`")
-	return new Promise((resolve,reject) => {resolve()});
-}
-
 function main(msg,n){
 
 	let area = [], x = 0; y = 0;
@@ -67,7 +59,11 @@ function main(msg,n){
 		}
 	}
 
-	printArea(area,msg);
+	area.forEach(row => {
+		msg.channel.send(row.join(" "));
+	});
+	msg.channel.send("\`Note: Borders contain nothing.\`")
+	return new Promise((resolve,reject) => {resolve()});
 }
  module.exports = main;
 
