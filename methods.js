@@ -85,9 +85,9 @@ async function minesweeper(msg,parameters){
 	try{
 		let n = parseInt(parameters[0]);
 		if(Number.isInteger(n) && n > 3 && n < 12){
-			msg.channel.send("Generating random field, wait 10 seconds...").then(async m=>{
+			msg.channel.send("Generating random field, wait a few seconds...").then(async m=>{
 				mines(msg,n);
-				await delay(8000);
+				await delay(2000);
 				m.edit("Ready!");
 				msg.channel.send("\`Note: Borders contain no bombs.\`");
 			});

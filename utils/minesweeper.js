@@ -60,7 +60,7 @@ function main(msg,n){
 	}
 	let final = "";
 	area.forEach(row => {
-		final += row.join(" ");
+		final += row.join("");
 		final += "\n";
 	});
 	msg.channel.send(final);
