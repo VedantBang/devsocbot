@@ -62,7 +62,6 @@ function main(msg,n){
 	area.forEach(row => {
 		msg.channel.send(row.join(" "));
 	});
-	msg.channel.send("\`Note: Borders contain nothing.\`")
 	return new Promise((resolve,reject) => {resolve()});
 }
  module.exports = main;
