@@ -58,10 +58,12 @@ function main(msg,n){
 			}
 		}
 	}
-
+	let final = "";
 	area.forEach(row => {
-		msg.channel.send(row.join(" "));
+		final += row.join(" ");
+		final += "\n";
 	});
+	msg.channel.send(final);
 	return new Promise((resolve,reject) => {resolve()});
 }
  module.exports = main;
