@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const prefix = process.env.prefix;
 
+const mines = require('./utils/minesweeper.js');
+
 // all methods of the bot
 
 function info(msg,parameters){
@@ -73,10 +75,20 @@ async function shorten(msg,parameters){
 	}
 }
 
-async function auditlog(msg,parameters){
-	let audit = await msg.guild.fetchAuditLogs();
-	msg.channel.send("this command is under construction");
-	console.log(audit.entries.prototype);
+async function minesweeper(msg,parameters){
+	try{
+		let n = parseInt(parameters[0]);
+		if(Number.isInteger(n) && n > 3 && n < 12){
+			msg.channel.send("Creating Minefield...").then(async m=>{
+				await mines(msg,n);
+				m.delete();
+			});
+		} else {
+			msg.channel.send("\`Input should be an integer between 3 and 12.\`");
+		}
+	} catch(err){ 
+		msg.channel.send("\`Input should be an integer between 3 and 12.\`");
+	};
 }
 
 const methods = {
@@ -96,9 +108,9 @@ const methods = {
 		func: ping,
 		desc: 'Displays the Bot Latency and Discord API Latency'
 	},
-	auditlog: {
-		func: auditlog,
-		desc: 'Display the Audit Log of the current server'
+	minesweeper: {
+		func: minesweeper,
+		desc: `Play Minesweeper!\nUsage: ${prefix}minesweeper <no. of bombs>`
 	}
 }
 
