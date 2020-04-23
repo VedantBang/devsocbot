@@ -80,8 +80,9 @@ async function minesweeper(msg,parameters){
 		let n = parseInt(parameters[0]);
 		if(Number.isInteger(n) && n > 3 && n < 12){
 			msg.channel.send("Creating Minefield...").then(async m=>{
-				await mines(msg,n);
-				m.edit("Ready!");
+				mines(msg,n).then(()=>{
+					m.edit("Ready!");
+				});
 			});
 		} else {
 			msg.channel.send("\`Input should be an integer between 3 and 12.\`");
